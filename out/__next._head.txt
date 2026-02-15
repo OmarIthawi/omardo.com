@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[59374,["/_next/static/chunks/a4c607288b1ec87c.js"],"ViewportBoundary"]
+3:I[59374,["/_next/static/chunks/a4c607288b1ec87c.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"trzKuJx90VoFe5l2rBSMQ","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0a0c10"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Omar Al-Ithawi - Founder of ZeitLabs | Open edX Leader"}],["$","meta","1",{"name":"description","content":"Omar Al-Ithawi is the Founder of ZeitLabs eLearning Solutions and a member of the Open edX Technical Oversight Committee. Building scalable online learning platforms across MENA."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
