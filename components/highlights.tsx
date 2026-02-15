@@ -5,21 +5,21 @@ import { Award, Rocket } from "lucide-react"
 const highlights = [
   {
     icon: Rocket,
-    title: "Founder & CEO at Zeitlabs",
+    title: "Founder & CEO, Zeitlabs",
     description:
-      "Founded Zeitlabs eLearning Solutions, the Open edX powerhouse in MENA, delivering scalable learning platforms for universities, governments, and non-profits.",
+      "Scalable Open edX platforms for universities, governments, and non-profits across MENA.",
   },
   {
     icon: Award,
     title: "Open edX TOC Board Member",
     description:
-      "Member of the Open edX Technical Oversight Committee, shaping the future of open-source education technology.",
+      "Shaping the future of open-source education technology.",
   },
 ]
 
 export function Highlights() {
   return (
-    <div className="grid w-full max-w-lg grid-cols-1 gap-3">
+    <div className="grid w-full max-w-lg grid-cols-2 gap-3">
       {highlights.map((item, index) => (
         <div
           key={item.title}

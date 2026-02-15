@@ -11,15 +11,13 @@ export function ProfileCard() {
           Omar Al-Ithawi
         </h1>
         <p className="mt-2 text-base text-muted-foreground font-mono tracking-wide">
-          Founder &amp; Open edX eLearning Leader
+          Founder &amp; eLearning Leader
         </p>
       </div>
 
       {/* Bio */}
       <p className="max-w-md text-center text-sm leading-relaxed text-secondary-foreground">
-        Building flexible &amp; scalable online learning platforms for
-        universities, governments, and non-profits across the MENA region
-        and beyond.
+        eLearning Solutions: flexible scalable online learning
       </p>
 
       {/* Social Links */}
