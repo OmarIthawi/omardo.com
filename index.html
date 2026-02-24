@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0c10">
+  <title>Omar Al-Ithawi - Founder of ZeitLabs | Open edX Leader</title>
+  <meta name="description" content="Omar Al-Ithawi is the Founder of ZeitLabs eLearning Solutions and a member of the Open edX Technical Oversight Committee. Building scalable online learning platforms across MENA.">
+  <link rel="canonical" href="https://www.omardo.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      border-color: hsl(220 14% 14%);
+    }
+
+    :root {
+      --bg: hsl(220 20% 4%);
+      --fg: hsl(210 20% 92%);
+      --card: hsl(220 18% 7%);
+      --card-fg: hsl(210 20% 92%);
+      --primary: hsl(195 80% 55%);
+      --primary-fg: hsl(220 20% 4%);
+      --secondary: hsl(220 14% 12%);
+      --secondary-fg: hsl(210 15% 75%);
+      --muted: hsl(220 14% 10%);
+      --muted-fg: hsl(215 12% 50%);
+      --border: hsl(220 14% 14%);
+      --radius: 0.75rem;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Main layout */
+    main {
+      position: relative;
+      display: flex;
+      min-height: 100svh;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 4rem 1rem;
+    }
+
+    @media (min-width: 640px) {
+      main { padding: 6rem 1rem; }
+    }
+
+    /* Background glows */
+    .glow {
+      pointer-events: none;
+      position: absolute;
+      border-radius: 9999px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .glow-top {
+      top: 33%;
+      transform: translate(-50%, -50%);
+      height: 500px;
+      width: 600px;
+      opacity: 0.04;
+      background: radial-gradient(ellipse at center, hsl(195 80% 55%) 0%, transparent 70%);
+    }
+
+    .glow-bottom {
+      bottom: 0;
+      height: 300px;
+      width: 500px;
+      opacity: 0.03;
+      background: radial-gradient(ellipse at center, hsl(195 80% 55%) 0%, transparent 70%);
+    }
+
+    /* Content section */
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      width: 100%;
+      max-width: 42rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    /* Profile card */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0;
+      animation: scale-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .profile h1 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .profile h1 { font-size: 2.25rem; }
+    }
+
+    .profile .subtitle {
+      margin-top: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--muted-fg);
+      letter-spacing: 0.05em;
+    }
+
+    .profile .bio {
+      max-width: 28rem;
+      text-align: center;
+      font-size: 0.875rem;
+      line-height: 1.625;
+      color: var(--secondary-fg);
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 0.625rem;
+      color: var(--muted-fg);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      border-color: hsla(195, 80%, 55%, 0.5);
+      color: var(--primary);
+      box-shadow: 0 0 12px hsla(195, 80%, 55%, 0.15);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Highlights grid */
+    .highlights {
+      display: grid;
+      width: 100%;
+      max-width: 32rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .highlight-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 1.25rem;
+      opacity: 0;
+      animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transition: all 0.3s;
+    }
+
+    .highlight-card:hover {
+      border-color: hsla(195, 80%, 55%, 0.3);
+      box-shadow: 0 0 20px hsla(195, 80%, 55%, 0.06);
+    }
+
+    .highlight-card .hover-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsla(195, 80%, 55%, 0.03), transparent);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .highlight-card:hover .hover-gradient {
+      opacity: 1;
+    }
+
+    .highlight-card .inner {
+      position: relative;
+    }
+
+    .highlight-card .icon-wrap {
+      display: inline-flex;
+      margin-bottom: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background: var(--secondary);
+      padding: 0.5rem;
+      color: var(--primary);
+      transition: border-color 0.3s;
+    }
+
+    .highlight-card:hover .icon-wrap {
+      border-color: hsla(195, 80%, 55%, 0.2);
+    }
+
+    .highlight-card .icon-wrap svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .highlight-card h3 {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .highlight-card p {
+      margin-top: 0.375rem;
+      font-size: 0.75rem;
+      line-height: 1.625;
+      color: var(--muted-fg);
+    }
+
+    /* ZeitLabs feature */
+    .zeitlabs-wrap {
+      width: 100%;
+      max-width: 32rem;
+      opacity: 0;
+      animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 900ms;
+    }
+
+    .zeitlabs {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: all 0.5s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .zeitlabs:hover {
+      border-color: hsla(195, 80%, 55%, 0.3);
+      box-shadow: 0 0 30px hsla(195, 80%, 55%, 0.08);
+    }
+
+    .zeitlabs .shimmer-line {
+      position: absolute;
+      inset: 0;
+      bottom: auto;
+      height: 1px;
+      background: linear-gradient(to right, transparent, hsla(195, 80%, 55%, 0.4), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .zeitlabs .inner {
+      position: relative;
+      padding: 1.5rem;
+    }
+
+    .zeitlabs .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .zeitlabs .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+    }
+
+    .zeitlabs .pulse-dot {
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      border-radius: 9999px;
+      background: hsla(195, 80%, 55%, 0.6);
+      animation: glow-pulse 4s ease-in-out infinite;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .zeitlabs .tagline {
+      margin-top: 0.25rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+
+    .zeitlabs .arrow-wrap {
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: var(--secondary);
+      padding: 0.5rem;
+      color: var(--muted-fg);
+      transition: all 0.3s;
+    }
+
+    .zeitlabs:hover .arrow-wrap {
+      border-color: hsla(195, 80%, 55%, 0.3);
+      color: var(--primary);
+    }
+
+    .zeitlabs .arrow-wrap svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s;
+    }
+
+    .zeitlabs:hover .arrow-wrap svg {
+      transform: translate(2px, -2px);
+    }
+
+    .zeitlabs .desc {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.625;
+      color: var(--muted-fg);
+    }
+
+    .zeitlabs .stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .zeitlabs .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .zeitlabs .stat-label {
+      font-size: 11px;
+      color: var(--muted-fg);
+    }
+
+    .zeitlabs .clients {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .zeitlabs .clients-label {
+      font-size: 11px;
+      color: hsla(215, 12%, 50%, 0.6);
+    }
+
+    .zeitlabs .client-name {
+      font-size: 11px;
+      font-weight: 500;
+      color: hsla(215, 12%, 50%, 0.8);
+    }
+
+    /* Footer connect */
+    .connect {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      opacity: 0;
+      animation: fade-in 0.6s ease-out forwards;
+      animation-delay: 1200ms;
+    }
+
+    .connect span {
+      font-size: 0.875rem;
+      color: hsla(215, 12%, 50%, 0.5);
+    }
+
+    .connect a {
+      font-size: 0.875rem;
+      color: hsla(215, 12%, 50%, 0.5);
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    .connect a:hover {
+      color: var(--primary);
+    }
+
+    /* Animations */
+    @keyframes scale-in {
+      0% { opacity: 0; transform: scale(0.92); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fade-in-up {
+      0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes fade-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="glow glow-top"></div>
+    <div class="glow glow-bottom"></div>
+
+    <section class="content">
+      <!-- Profile Card -->
+      <div class="profile">
+        <div style="text-align:center">
+          <h1>Omar Al-Ithawi</h1>
+          <p class="subtitle">Founder &amp; eLearning Leader</p>
+        </div>
+        <p class="bio">eLearning Solutions: flexible scalable online learning</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/omarithawi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/OmarIthawi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <a href="https://zeitlabs.com" target="_blank" rel="noopener noreferrer" aria-label="Zeitlabs website" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Highlights -->
+      <div class="highlights">
+        <div class="highlight-card" style="animation-delay: 400ms">
+          <div class="hover-gradient"></div>
+          <div class="inner">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            </div>
+            <h3>Founder &amp; CEO, Zeitlabs</h3>
+            <p>Scalable Open edX platforms for universities, governments, and non-profits across MENA.</p>
+          </div>
+        </div>
+        <div class="highlight-card" style="animation-delay: 520ms">
+          <div class="hover-gradient"></div>
+          <div class="inner">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+            </div>
+            <h3>Open edX TOC Board Member</h3>
+            <p>Shaping the future of open-source education technology.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZeitLabs Feature -->
+      <div class="zeitlabs-wrap">
+        <a href="https://zeitlabs.com" target="_blank" rel="noopener noreferrer" class="zeitlabs">
+          <div class="shimmer-line"></div>
+          <div class="inner">
+            <div class="header">
+              <div>
+                <div style="display:flex;align-items:center">
+                  <span class="label">Zeitlabs</span>
+                  <span class="pulse-dot"></span>
+                </div>
+                <p class="tagline">eLearning Powerhouse in MENA</p>
+              </div>
+              <div class="arrow-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </div>
+            </div>
+            <p class="desc">We build flexible &amp; scalable online learning platforms for universities, governments, and non-profits. With full Arabic language support, local payment solutions, and compliant hosting in Bahrain, Riyadh, and Dubai.</p>
+            <div class="stats">
+              <div>
+                <p class="stat-value">2014</p>
+                <p class="stat-label">Since</p>
+              </div>
+              <div>
+                <p class="stat-value">Millions</p>
+                <p class="stat-label">Learners Served</p>
+              </div>
+            </div>
+            <div class="clients">
+              <span class="clients-label">Trusted by</span>
+              <span class="client-name">Edraak</span>
+              <span class="client-name">Open University</span>
+              <span class="client-name">Pedago</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Connect -->
+      <div class="connect">
+        <span>Let's connect:</span>
+        <a href="mailto:welcome@zeitlabs.com">welcome@zeitlabs.com</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
